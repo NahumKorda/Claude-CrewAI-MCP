@@ -1,18 +1,20 @@
 # Claude-CrewAI-MCP
-Model Context Protocol (MCP) server for the Claude Desktop that instructs it how to properly code Python projects using CrewAI. Uses [FastMCP] (https://gofastmcp.com/getting-started/welcome).
+Model Context Protocol (MCP) server for the Claude Desktop that instructs it how to properly code Python projects using CrewAI. Uses [FastMCP](https://gofastmcp.com/getting-started/welcome).
 
 ## Installation
-  {
-    "mcpServers": {
-      "CrewaiMcpServer": {
-        "command": "path/to/venv/with/installed/fastmcp",
-        "args": ["path/to/crewai_mcp_server.py"]
-      }
+```
+{
+  "mcpServers": {
+    "CrewaiMcpServer": {
+      "command": "path/to/venv/with/installed/fastmcp",
+      "args": ["path/to/crewai_mcp_server.py"]
     }
   }
+}
+```
 
 ## Quick Start
-Add the Claude-CrewAI-MCP configuration to your Claude Desktop and restart restart Claude Desktop completely. Detailed instructions are available [here] (https://modelcontextprotocol.io/quickstart/user).
+Add the Claude-CrewAI-MCP configuration to your Claude Desktop and restart restart Claude Desktop completely. Detailed instructions are available [here](https://modelcontextprotocol.io/quickstart/user).
 
 ## Contributing
 
