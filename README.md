@@ -14,7 +14,7 @@ Model Context Protocol (MCP) server for the Claude Desktop that instructs it how
 ```
 
 ## Quick Start
-Add the Claude-CrewAI-MCP configuration to your Claude Desktop and restart restart Claude Desktop completely. Detailed instructions are available [here](https://modelcontextprotocol.io/quickstart/user).
+Add the Claude-CrewAI-MCP configuration to the claude_desktop_config.json and restart Claude Desktop completely. Detailed instructions are available [here](https://modelcontextprotocol.io/quickstart/user).
 
 ## Contributing
 
