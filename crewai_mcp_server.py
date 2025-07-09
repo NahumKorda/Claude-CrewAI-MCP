@@ -87,7 +87,20 @@ def get_crew_setup_rules() -> str:
         "All functionalities must be executed by the CrewAI agents, tasks and their tools. No processing code is needed besides CrewAI components.",
         "The output of the kick0ff() function is not a string, but rather an instance of the CrewOutput class.",
         "If the intended output is JSON, use the .json property of the CrewOutput class to obtain a JSON-formatted string and then convert it to a dictionary using the json Python library.",
-        "Do not parse JSON output. If you specify a Pydantic class for output, the output will be guaranteed valid JSON."
+        "Do not parse JSON output. If you specify a Pydantic class for output, the output will be guaranteed valid JSON.",
+        """If agents use a Model Context Protocol (MCP) server, always use StdioServerParameters and MCPServerAdapter classes:
+    
+    server_params=StdioServerParameters(
+        command="",
+        args=[""],
+        env={""},
+    )
+    
+    with MCPServerAdapter(server_params) as mcp_tools:
+        agent = self._create_some_agent(mcp_tools)
+        ...
+        
+        """
     ]
 
     return json.dumps({
@@ -112,7 +125,8 @@ def get_general_rules() -> str:
         "Do not code any fallback simulated outputs as an alternative for the crew output.",
         "Always code a single crew and never split the code into separate crews.",
         "Never code any RegEx.",
-        "Do not include any logging. Do not print anything to stdout. CrewaAI is sufficiently verbose."
+        "Do not include any logging. Do not print anything to stdout. CrewaAI is sufficiently verbose.",
+        "Remove all unused imports from the code."
     ]
 
     return json.dumps({
