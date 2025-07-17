@@ -61,10 +61,8 @@ def get_task_definition_rules() -> str:
         output_format="json"
         """,
         """If Serper is specified as the tool, make sure to explicitly instruct CrewAI how to interface Serper:
-        ✅ Clear tool usage instructions - explains the required search_query parameter
-        ✅ Specific search examples - shows exactly how to format queries
-        ✅ Multiple query suggestions - provides 5-6 example searches per task
-        ✅ Parameter format guidance - emphasizes search_query must be a string"""
+        ✅ Formulate the desired queries (e.g., "cybersecurity startup industry benchmarks cash burn rate venture debt 2024")
+        ❌ Don't provide sample output (e.g., don't do this: "{{'search_query': 'cybersecurity startup industry benchmarks cash burn rate venture debt 2024'}}")""",
     ]
 
     return json.dumps({
