@@ -33,9 +33,10 @@ def get_agent_definition_rules() -> str:
     """Provide guidelines for defining CrewAI agents with proper roles, goals, and backstories."""
 
     instructions = [
-        "Input variables must be listed in the agent's role field."
+        "Input variables must be listed in the agent's role field.",
         """Example:
-        role: {input variable 1} {input variable 2} <definition of role>"""
+        role: {input variable 1} {input variable 2} <definition of role>""",
+        "Add critical behavioral instructions (like no-hallucination rules) to both agent backstories AND task descriptions for reinforcement.",
     ]
 
     return json.dumps({
@@ -62,7 +63,11 @@ def get_task_definition_rules() -> str:
         """,
         """If Serper is specified as the tool, make sure to explicitly instruct CrewAI how to interface Serper:
         ✅ Formulate the desired queries (e.g., "cybersecurity startup industry benchmarks cash burn rate venture debt 2024")
-        ❌ Don't provide sample output (e.g., don't do this: "{{'search_query': 'cybersecurity startup industry benchmarks cash burn rate venture debt 2024'}}")""",
+        ✅ Ensure that the input for the tool is a key/value dictionary""",
+        "When adding validation rules, integrate them directly into existing task descriptions rather than restructuring.",
+        "Add critical behavioral instructions (like no-hallucination rules) to both agent backstories AND task descriptions for reinforcement.",
+        "Keep instruction additions focused and specific rather than comprehensive rewrites.",
+        "Prioritize data integrity and accuracy features over user experience or maintainability improvements.",
     ]
 
     return json.dumps({
@@ -124,7 +129,12 @@ def get_general_rules() -> str:
         "Always code a single crew and never split the code into separate crews.",
         "Never code any RegEx.",
         "Do not include any logging. Do not print anything to stdout. CrewaAI is sufficiently verbose.",
-        "Remove all unused imports from the code."
+        "Remove all unused imports from the code.",
+        "Keep code structure minimal and focused - avoid adding main() functions, extensive documentation, or example usage unless explicitly requested.",
+        "Preserve existing method names and class structure - **only modify what's specifically requested**.",
+        "Do not generate mockup data for testing.",
+        "Don't add comprehensive docstrings or comments unless the user asks for documentation improvements.",
+        "Avoid suggesting 'best practices' that add complexity like retry logic, configuration management, or extensive error handling unless the user identifies these as problems.",
     ]
 
     return json.dumps({
